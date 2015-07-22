@@ -25,3 +25,12 @@ GTAGS
 src/eproject.cfg
 
 CMakeCache.txt
+
+build/
+build/*
+
+CMakeFiles/
+CMakeFiles/*
+
+Makefile
+cmake_install.cmake
