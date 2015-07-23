@@ -1,10 +1,14 @@
 #include "interface.hpp"
 #include "json.hpp"
+#include "mapData.hpp"
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
+
+    MapData testMap = MapData("maps/first_map.json");
 
     while (window.isOpen())
     {
