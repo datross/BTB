@@ -1,0 +1,15 @@
+{
+	"music_file" = "some music...",
+	
+	[
+		{ 
+			"type" = "circle",
+			"time" = 15.2
+			"
+		},
+		{
+			"type" = "ovale",
+			"time" = 48.1
+		}
+	]
+}
