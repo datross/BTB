@@ -1,15 +1,14 @@
 {
-	"music_file" = "some music...",
+	"music_file" : "some music...",
 	
-	[
+	"game_timleline" : [
 		{ 
-			"type" = "circle",
-			"time" = 15.2
-			"
+			"type" : "circle",
+			"time" : 15.2
 		},
 		{
-			"type" = "ovale",
-			"time" = 48.1
+			"type" : "ovale",
+			"time" : 48.1
 		}
 	]
 }
