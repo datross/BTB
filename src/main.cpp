@@ -1,6 +1,6 @@
 #include "interface.hpp"
 #include "json.hpp"
-#include "mapData.hpp"
+#include "mapdata.hpp"
 
 int main()
 {

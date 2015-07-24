@@ -1,7 +1,9 @@
+/*** This file contains the class mapData which contains raw data about the maps ***/
 #ifndef MAP_DATA
 #define MAP_DATA
 
 #include "json.hpp"
+#include "utils.hpp"
 #include <vector>
 #include <string>
 #include <SFML/Audio.hpp>
@@ -14,7 +16,7 @@ typedef struct sceneElementInfo
   double duration; 
   double time;//the moment at which you must click
   std::string type;
-  //maybe could be better to add a json object in sceneElementInfo and let each scene element parse its own Json object. Could allow much more flexibility about the JSon file.
+  json specificity;
 } sceneElementInfo;
 
 class MapData
@@ -29,9 +31,6 @@ public :
 private :
   void openSong(const std::string& file);
   void loadSceneData(const json& json_map);
-
-
-
 };
 
 #endif 
