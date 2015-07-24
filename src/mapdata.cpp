@@ -1,4 +1,4 @@
-#include "mapData.hpp"
+#include "mapdata.hpp"
 #include <fstream>
 #include <sstream>
 #include <iostream>
@@ -9,8 +9,10 @@ using namespace std;
 MapData::MapData(const string& file)
 {
   ifstream json_file(file);
+
   if (!json_file)
     throw runtime_error("Json file loading failed");
+
   stringstream ss;
   ss << json_file.rdbuf();
   json_file.close();
@@ -21,9 +23,6 @@ MapData::MapData(const string& file)
        json json_map = json::parse(str_json);
        song = new sf::Music;
        openSong(json_map["music_file"]);
-       
-       cout<<parseColor("000000FF")<<endl;
-
        loadSceneData(json_map);
     }
   catch(const exception& e)
@@ -58,7 +57,7 @@ void MapData::loadSceneData(const json& json_map)
   catch(exception const& e)
     {
       cerr<<"Error :" <<e.what()<<endl;
-      cerr<<"It seems that the json file loading has failed."<<endl;
+      cerr<<"It seems that the sceneData loading has failed."<<endl;
     }
  
 }
