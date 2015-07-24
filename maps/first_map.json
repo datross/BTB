@@ -13,7 +13,7 @@
 
 		},
 		{
-			"type" : "ovale",
+			"type" : "circle",
 			"time" : 48.1,
 			"duration" : 1.5,
 			"specificity" : {

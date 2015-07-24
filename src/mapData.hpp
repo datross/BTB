@@ -1,7 +1,9 @@
+/*** This file contains the class mapData which contains raw data about the maps ***/
 #ifndef MAP_DATA
 #define MAP_DATA
 
 #include "json.hpp"
+#include "utils.hpp"
 #include <vector>
 #include <string>
 #include <SFML/Audio.hpp>
@@ -29,9 +31,6 @@ public :
 private :
   void openSong(const std::string& file);
   void loadSceneData(const json& json_map);
-
-
-
 };
 
 #endif 

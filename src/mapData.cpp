@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iostream>
 
+
 using namespace std;
 
 MapData::MapData(const string& file)
@@ -12,14 +13,24 @@ MapData::MapData(const string& file)
     throw runtime_error("Json file loading failed");
   stringstream ss;
   ss << json_file.rdbuf();
+  json_file.close();
   string str_json = ss.str();
-  json json_map = json::parse(str_json);
   
-  song = new sf::Music;
-  openSong(json_map["music_file"]);
+  try
+    {
+       json json_map = json::parse(str_json);
+       song = new sf::Music;
+       openSong(json_map["music_file"]);
+       
+       cout<<parseColor("000000FF")<<endl;
 
-  loadSceneData(json_map);
-  cout<<sceneData[0].specificity<<endl;
+       loadSceneData(json_map);
+    }
+  catch(const exception& e)
+    {
+      cerr << "Error in the loading of the Json file : "<< e.what()<<endl;
+    }
+      
 }
 
 void MapData::openSong(const string& file)
