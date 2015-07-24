@@ -10,7 +10,6 @@ class SceneElement
 {
 public:
     SceneElement();
-    virtual ~SceneElement() = 0;
 
     virtual void prepare(float time) = 0;
     virtual void show() = 0;

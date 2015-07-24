@@ -12,7 +12,7 @@ GameScene::~GameScene()
 
 void GameScene::update()
 {
-    std::vector<SceneElement>::iterator it = circles.begin();
+    std::vector<SceneElement>::iterator it = elements.begin();
     for(; it != elements.end(); it++)
     {
         it->prepare(current_time);
