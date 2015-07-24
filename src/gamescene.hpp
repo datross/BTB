@@ -1,7 +1,7 @@
 #ifndef GAMESCENE_HPP
 #define GAMESCENE_HPP
 
-#include <queue>
+#include <vector>
 #include "interface.hpp"
 #include "sceneelement.hpp"
 
@@ -13,7 +13,11 @@ public:
 
     virtual void update();
 private:
-    std::queue<SceneElement> circles;
+    // graphic elements to display
+    std::vector<SceneElement> elements;
+
+    // current time
+    float current_time;
 };
 
 #endif // GAMESCENE_HPP

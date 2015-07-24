@@ -12,8 +12,10 @@ GameScene::~GameScene()
 
 void GameScene::update()
 {
-    // on met à jour la file des cercles à afficher...
-
-    // puis on les affiche tous
-
+    std::vector<SceneElement>::iterator it = circles.begin();
+    for(; it != elements.end(); it++)
+    {
+        it->prepare(current_time);
+        it->show();
+    }
 }

@@ -3,8 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
-// Classe abastraite pure, pour encapsuler tous les
-// objets graphiques de l'affichage.
+// Pure abstract class, encapsulating
+// every displayable scene object.
 
 class SceneElement
 {
@@ -12,6 +12,7 @@ public:
     SceneElement();
     virtual ~SceneElement() = 0;
 
+    virtual void prepare(float time) = 0;
     virtual void show() = 0;
 private:
 
