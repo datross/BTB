@@ -5,3 +5,8 @@ SceneElement::SceneElement()
 
 }
 
+SceneElement::~SceneElement()
+{
+
+}
+
