@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//parse the Json file.
 MapData::MapData(const string& file)
 {
   ifstream json_file(file);
@@ -17,7 +18,7 @@ MapData::MapData(const string& file)
   ss << json_file.rdbuf();
   json_file.close();
   string str_json = ss.str();
-  
+
   try
     {
        json json_map = json::parse(str_json);
@@ -47,8 +48,10 @@ void MapData::loadSceneData(const json& json_map)
       sceneElementInfo info_tmp;
       for(json::iterator it = json_timeline.begin(); it != json_timeline.end(); ++it)
 	{
+	  //fills info_tmp
 	  info_tmp.time = (*it)["time"];
 	  info_tmp.duration = (*it)["duration"];
+	  info_tmp.ratio = (*it)["ratio"];
 	  info_tmp.type = (*it)["type"].get<string>();
 	  info_tmp.specificity = (*it)["specificity"];
 	  sceneData.push_back(info_tmp);

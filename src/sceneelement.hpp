@@ -2,6 +2,7 @@
 #define SCENEELEMENT_HPP
 
 #include <SFML/Graphics.hpp>
+#include <stdexcept>
 
 // Pure abstract class, encapsulating
 // every displayable scene object.

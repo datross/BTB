@@ -13,8 +13,9 @@ using json = nlohmann::json;
 //this structure gives informations about a screenElement
 typedef struct sceneElementInfo
 {
-  double duration; 
-  double time;//the moment at which you must click
+  float duration; 
+  float time;//the moment at which you must click
+  float ratio; //ratio  = time_before_click/duration
   std::string type;
   json specificity;
 } sceneElementInfo;

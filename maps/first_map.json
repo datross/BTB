@@ -4,20 +4,24 @@
 	"game_timeline" : [
 		{ 
 			"type" : "circle",
-			"time" : 15.2,
+			"time" : 1,
 			"duration" : 1.5,
+			"ratio" : 0.7,
 			"specificity" : {
-				"size" : 30
+				"radius" : 30,
+				"color" : "FF0000FF"
 			}
 
 
 		},
 		{
 			"type" : "circle",
-			"time" : 48.1,
+			"time" : 2,
 			"duration" : 1.5,
+			"ratio" : 0.7,
 			"specificity" : {
-				"size" : 25
+				"size" : 30,
+				"color" : "0000FFFF"
 			}
 					
 		}

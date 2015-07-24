@@ -5,15 +5,20 @@
 
 #include "mapdata.hpp"
 #include <stdexcept>
+#include <string>
 
 class SceneElementData
 {
 public :
-  SceneElementData(int elementID , const MapData& a_map_data);
-  double getTime();
-  double getDuration();
+  SceneElementData(int elementID , const MapData& map_data);
 
-private : 
+  //accessors
+  float getTime();
+  float getDuration();
+  float getRatio();
+  std::string getType();
+
+protected : 
   const MapData& map_data;
   int elementID;
 };
