@@ -5,8 +5,3 @@ SceneElement::SceneElement()
 
 }
 
-SceneElement::~SceneElement()
-{
-
-}
-
