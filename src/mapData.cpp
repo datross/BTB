@@ -28,7 +28,7 @@ void MapData::openSong(const string& file)
   
 }
 
-void MapData::loadSceneData(json json_map)
+void MapData::loadSceneData(const json& json_map)
 {
   try
     {
