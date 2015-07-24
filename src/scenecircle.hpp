@@ -13,10 +13,10 @@ public:
     void initialize(float time, float duration, float ratio_before_click, int radius, sf::Rect<int> position, sf::Color color);
 
     // prepare the display position
-    virtual void prepare(float time);
+    void prepare(float time);
 
     // display the sprites
-    virtual void show();
+    void show();
 private:
     sf::Image circle_image;
     sf::Texture circle_tex;

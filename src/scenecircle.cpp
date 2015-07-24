@@ -1,5 +1,6 @@
 #include "scenecircle.hpp"
 
+
 SceneCircle::SceneCircle()
 {
 
@@ -25,4 +26,14 @@ void SceneCircle::initialize(float time, float a_duration, float a_ratio_before_
     circle_tex.loadFromImage(circle_image);
     circle_1.setTexture(circle_tex, true);
     circle_2.setTexture(circle_tex, true);
+}
+
+void SceneCircle::prepare(float time)
+{
+
+}
+
+void SceneCircle::show()
+{
+
 }
