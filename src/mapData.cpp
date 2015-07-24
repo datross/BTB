@@ -19,6 +19,7 @@ MapData::MapData(const string& file)
   openSong(json_map["music_file"]);
 
   loadSceneData(json_map);
+  cout<<sceneData[0].specificity<<endl;
 }
 
 void MapData::openSong(const string& file)
@@ -39,6 +40,7 @@ void MapData::loadSceneData(const json& json_map)
 	  info_tmp.time = (*it)["time"];
 	  info_tmp.duration = (*it)["duration"];
 	  info_tmp.type = (*it)["type"].get<string>();
+	  info_tmp.specificity = (*it)["specificity"];
 	  sceneData.push_back(info_tmp);
 	}
     }

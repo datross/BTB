@@ -14,7 +14,7 @@ typedef struct sceneElementInfo
   double duration; 
   double time;//the moment at which you must click
   std::string type;
-  //maybe could be better to add a json object in sceneElementInfo and let each scene element parse its own Json object. Could allow much more flexibility about the JSon file.
+  json specificity;
 } sceneElementInfo;
 
 class MapData
