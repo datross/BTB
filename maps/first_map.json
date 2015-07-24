@@ -1,14 +1,16 @@
 {
-	"music_file" : "music/014_1.WAV",
+	"music_file" : "music/1vs0_JuniorGroove.ogg",
 	
-	"game_timleline" : [
+	"game_timeline" : [
 		{ 
 			"type" : "circle",
-			"time" : 15.2
+			"time" : 15.2,
+			"duration" : 1.5
 		},
 		{
 			"type" : "ovale",
-			"time" : 48.1
+			"time" : 48.1,
+			"duration" : 1.5
 		}
 	]
 }
