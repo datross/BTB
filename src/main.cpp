@@ -2,6 +2,7 @@
 #include "json.hpp"
 #include "mapdata.hpp"
 #include "scenecircledata.hpp"
+#include "mapreader.hpp"
 
 using namespace std;
 
@@ -12,7 +13,8 @@ int main()
     shape.setFillColor(sf::Color::Green);
 
     MapData testMap = MapData("maps/first_map.json");
-    testMap.song->play();
+    MapReader reader = MapReader(testMap);
+    reader.startSong();
 
     while (window.isOpen())
     {

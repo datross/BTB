@@ -5,8 +5,8 @@ using namespace std;
 SceneCircleData::SceneCircleData(int circleID, const MapData& map_data) : SceneElementData(circleID,map_data)
 {
   //verify whether it's really a circle
-  if(map_data.sceneData[circleID].type != "circle")
-    throw invalid_argument("You tried to use a \"" + map_data.sceneData[circleID].type + "\" ID when a circle ID is needed.");
+  if(map_data.scene_data[circleID].type != "circle")
+    throw invalid_argument("You tried to use a \"" + map_data.scene_data[circleID].type + "\" ID when a circle ID is needed.");
 }
 
 int SceneCircleData::getRadius()
@@ -14,7 +14,7 @@ int SceneCircleData::getRadius()
   int radius = 0;
   try
     {
-      radius = map_data.sceneData[elementID].specificity["radius"];
+      radius = map_data.scene_data[elementID].specificity["radius"];
     }
   catch(const exception& e)
     {
@@ -29,7 +29,7 @@ sf::Color SceneCircleData::getColor()
 {
   try
     {
-      sf::Color color = parseColor(map_data.sceneData[elementID].specificity["color"]);
+      sf::Color color = parseColor(map_data.scene_data[elementID].specificity["color"]);
       
     }
   catch(const exception& e)

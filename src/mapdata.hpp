@@ -26,7 +26,7 @@ class MapData
 public :
   MapData(const std::string& file);
   sf::Music* song; //maybe could be better to use RAII
-  std::vector<sceneElementInfo> sceneData;
+  std::vector<sceneElementInfo> scene_data;
 
   ~MapData();
 
