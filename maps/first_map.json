@@ -20,7 +20,7 @@
 			"duration" : 1.5,
 			"ratio" : 0.7,
 			"specificity" : {
-				"size" : 30,
+				"radius" : 30,
 				"color" : "0000FFFF"
 			}
 					

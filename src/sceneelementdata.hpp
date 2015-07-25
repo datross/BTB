@@ -4,6 +4,7 @@
 #define SCENE_ELEMENT_DATA
 
 #include "mapdata.hpp"
+#include <SFML/System.hpp>
 #include <stdexcept>
 #include <string>
 
@@ -13,10 +14,12 @@ public :
   SceneElementData(int elementID , const MapData& map_data);
 
   //accessors
-  float getTime();
-  float getDuration();
+  sf::Time getTime();
+  sf::Time getDuration();
   float getRatio();
   std::string getType();
+
+  bool isActive(const sf::Time& timeElapsed);
 
 protected : 
   const MapData& map_data;

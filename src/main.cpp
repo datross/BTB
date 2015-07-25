@@ -1,6 +1,9 @@
 #include "interface.hpp"
 #include "json.hpp"
 #include "mapdata.hpp"
+#include "scenecircledata.hpp"
+
+using namespace std;
 
 int main()
 {

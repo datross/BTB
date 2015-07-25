@@ -7,14 +7,15 @@
 #include <vector>
 #include <string>
 #include <SFML/Audio.hpp>
+#include <SFML/System.hpp>
 
 using json = nlohmann::json;
 
 //this structure gives informations about a screenElement
 typedef struct sceneElementInfo
 {
-  float duration; 
-  float time;//the moment at which you must click
+  sf::Time duration; 
+  sf::Time time;//the moment at which you must click
   float ratio; //ratio  = time_before_click/duration
   std::string type;
   json specificity;

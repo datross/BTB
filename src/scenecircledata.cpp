@@ -6,7 +6,7 @@ SceneCircleData::SceneCircleData(int circleID, const MapData& map_data) : SceneE
 {
   //verify whether it's really a circle
   if(map_data.sceneData[circleID].type != "circle")
-    throw invalid_argument("A circle ID is needed.");
+    throw invalid_argument("You tried to use a \"" + map_data.sceneData[circleID].type + "\" ID when a circle ID is needed.");
 }
 
 int SceneCircleData::getRadius()
