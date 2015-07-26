@@ -61,10 +61,22 @@ void SceneCircle::prepare(float time)
 
     circle_1.setPosition(pos_circle_1);
     circle_2.setPosition(pos_circle_2);
+
+    // call of the next element
+    if(next != NULL)
+    {
+        next->prepare(time);
+    }
 }
 
 void SceneCircle::show()
 {
     window.draw(circle_1);
     window.draw(circle_2);
+
+    // call of the next element
+    if(next != NULL)
+    {
+        next->show();
+    }
 }
