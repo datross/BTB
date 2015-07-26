@@ -16,5 +16,5 @@ add_executable(BTB ${source_files})
 
 add_definitions(-std=c++11)
 
-target_link_libraries(BTB -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio)
+target_link_libraries(BTB -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio) 
 

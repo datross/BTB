@@ -15,7 +15,7 @@ public:
   MapReader(const MapData& map_data);
   ~MapReader();
   void startSong();
-  const SceneElementData& getSceneElementData(int id);
+  std::vector<SceneElementData*> getNewElements();
 
 private :
   std::vector<SceneElementData* > scene_elements;

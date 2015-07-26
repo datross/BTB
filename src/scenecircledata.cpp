@@ -9,7 +9,14 @@ SceneCircleData::SceneCircleData(int circleID, const MapData& map_data) : SceneE
     throw invalid_argument("You tried to use a \"" + map_data.scene_data[circleID].type + "\" ID when a circle ID is needed.");
 }
 
-int SceneCircleData::getRadius()
+
+
+SceneCircleData* SceneCircleData::get()
+{
+  return this;
+}
+
+int SceneCircleData::getRadius() const
 {
   int radius = 0;
   try
@@ -25,7 +32,7 @@ int SceneCircleData::getRadius()
 }
 
 
-sf::Color SceneCircleData::getColor()
+sf::Color SceneCircleData::getColor() const
 {
   try
     {

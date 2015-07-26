@@ -14,12 +14,33 @@ public :
   SceneElementData(int elementID , const MapData& map_data);
 
   //accessors
-  sf::Time getTime();
-  sf::Time getDuration();
-  float getRatio();
-  std::string getType();
+  sf::Time getTime() const;
+  sf::Time getDuration() const;
+  sf::Time getEmergence() const;
+  float getRatio() const;
+  std::string getType() const;
 
-  bool isActive(const sf::Time& timeElapsed);
+
+  bool isActive(const sf::Time& timeElapsed) const;
+
+
+  class EmergenceComparison
+  {
+  public :
+    bool operator()(const SceneElementData& sed1, const SceneElementData& sed2)
+    {
+      return sed1.getEmergence() <= sed2.getEmergence();
+    }
+  };
+
+  class ClickComparison
+  {
+  public :
+    bool operator()(const SceneElementData& sed1, const SceneElementData& sed2)
+    {
+      return sed1.getTime() <= sed2.getTime();
+    }
+  };
 
 protected : 
   const MapData& map_data;

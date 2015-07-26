@@ -20,20 +20,7 @@ void MapReader::startSong()
   map_data.song->play();
 }
 
-const SceneElementData& MapReader::getSceneElementData(int id)
-{
-  return (*scene_elements[id]);
-}
 
-vector<int> idsToDisplay()
-{
-  
-}
-
-vector<int> idsToRemove()
-{
-  
-}
 
 MapReader::~MapReader()
 {
