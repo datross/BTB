@@ -48,19 +48,20 @@ void MapData::loadSceneData(const json& json_map)
       sceneElementInfo info_tmp;
       for(json::iterator it = json_timeline.begin(); it != json_timeline.end(); ++it)
 	{
+	  
 	  //fills info_tmp
-	  info_tmp.time = (*it)["time"];
-	  info_tmp.duration = (*it)["duration"];
+	  info_tmp.time = sf::seconds((*it)["time"]);
+	  info_tmp.duration = sf::seconds((*it)["duration"]);
 	  info_tmp.ratio = (*it)["ratio"];
 	  info_tmp.type = (*it)["type"].get<string>();
 	  info_tmp.specificity = (*it)["specificity"];
-	  sceneData.push_back(info_tmp);
+	  scene_data.push_back(info_tmp);
 	}
     }
   catch(exception const& e)
     {
       cerr<<"Error :" <<e.what()<<endl;
-      cerr<<"It seems that the sceneData loading has failed."<<endl;
+      cerr<<"It seems that the scene_data loading has failed."<<endl;
     }
  
 }
