@@ -11,6 +11,7 @@ int main()
     MapData testMap = MapData("maps/first_map.json");
     testMap.song->play();
 
+
     while (window.isOpen())
     {
         sf::Event event;
