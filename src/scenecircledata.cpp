@@ -10,12 +10,6 @@ SceneCircleData::SceneCircleData(int circleID, const MapData& map_data) : SceneE
 }
 
 
-
-SceneCircleData* SceneCircleData::get()
-{
-  return this;
-}
-
 int SceneCircleData::getRadius() const
 {
   int radius = 0;
