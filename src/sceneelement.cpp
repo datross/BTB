@@ -5,6 +5,16 @@ SceneElement::SceneElement()
 
 }
 
+void SceneElement::prepare(sf::Time time)
+{
+
+}
+
+void SceneElement::show()
+{
+
+}
+
 SceneElementData * SceneElement::getData()
 {
     return data;

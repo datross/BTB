@@ -8,11 +8,11 @@
 class SceneCircle : public SceneElement
 {
 public:
-    SceneCircle(sf::RenderWindow& window, SceneElementData * data);
+    SceneCircle(sf::RenderWindow * window, SceneElementData * data);
     ~SceneCircle();
 
     // prepare the display position
-    void prepare(float time);
+    void prepare(sf::Time time);
 
     // display the sprites
     void show();
@@ -24,7 +24,7 @@ private:
 
     sf::Vector2f pos_circle_1, pos_circle_2;
 
-    sf::RenderWindow& window;
+    sf::RenderWindow * window;
 
     SceneCircleData * casted_data;
 };

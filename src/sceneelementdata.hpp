@@ -4,7 +4,6 @@
 #define SCENE_ELEMENT_DATA
 
 #include "mapdata.hpp"
-#include "sceneelement.hpp"
 #include <SFML/System.hpp>
 #include <stdexcept>
 #include <string>

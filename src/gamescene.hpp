@@ -10,7 +10,7 @@
 class GameScene : public InterfaceElement
 {
 public:
-    GameScene(MapReader&);
+    GameScene(MapReader*);
     ~GameScene();
 
     virtual void update();
@@ -19,11 +19,11 @@ private:
     SceneElement elements;
 
     // current time
-    float current_time;
+    sf::Time current_time;
 
-    MapReader& map_reader;
+    MapReader * map_reader;
 
-    sf::RenderWindow& window;
+    sf::RenderWindow * window;
 };
 
 #endif // GAMESCENE_HPP

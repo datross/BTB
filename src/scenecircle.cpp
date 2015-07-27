@@ -1,10 +1,11 @@
 #include "scenecircle.hpp"
 
 
-SceneCircle::SceneCircle(sf::RenderWindow& window, SceneElementData * data)
-    : window(window), data(data)
+SceneCircle::SceneCircle(sf::RenderWindow * window, SceneElementData * a_data)
+    : window(window)//, data(a_data)
 {
-    casted_data = dynamic_cast<SceneCircleData*>(data);
+    data = a_data;
+    casted_data = static_cast<SceneCircleData*>(data);
 
     // create image, texture and sprites
     circle_image.create(2 * casted_data->getRadius(), 2 * casted_data->getRadius(), sf::Color(0,0,0,0));
@@ -36,15 +37,15 @@ void SceneCircle::prepare(sf::Time time)
     // calculation of both positions
     if(time < casted_data->getClickTime()) // before click time
     {
-        pos_circle_1.x = casted_data->.x - 2 * radius + static_cast<int>(static_cast<float>(radius) * (time - (click_time - duration * ratio_before_click)) / (duration * ratio_before_click));
-        pos_circle_1.y = position.y - radius;
-        pos_circle_2.x = position.x + (position.x - pos_circle_1.x) - 2 * radius;
+        pos_circle_1.x = casted_data->getPosition().x - 2 * casted_data->getRadius() + static_cast<int>(static_cast<float>(casted_data->getRadius()) * (time.asSeconds() - (casted_data->getClickTime().asSeconds() - casted_data->getDuration().asSeconds() * casted_data->getRatio())) / (casted_data->getDuration().asSeconds() * casted_data->getRatio()));
+        pos_circle_1.y = casted_data->getPosition().y - casted_data->getRadius();
+        pos_circle_2.x = casted_data->getPosition().x + (casted_data->getPosition().x - pos_circle_1.x) - 2 * casted_data->getRadius();
         pos_circle_2.y = pos_circle_1.y;
     }
     else // after click time
     {
-        pos_circle_1.x = position.x - radius;
-        pos_circle_1.y = position.y - radius;
+        pos_circle_1.x = casted_data->getPosition().x - casted_data->getRadius();
+        pos_circle_1.y = casted_data->getPosition().y - casted_data->getRadius();
         pos_circle_2.x = pos_circle_1.x;
         pos_circle_2.y = pos_circle_1.x;
     }
@@ -61,8 +62,8 @@ void SceneCircle::prepare(sf::Time time)
 
 void SceneCircle::show()
 {
-    window.draw(circle_1);
-    window.draw(circle_2);
+    window->draw(circle_1);
+    window->draw(circle_2);
 
     // call of the next element
     if(next != NULL)
