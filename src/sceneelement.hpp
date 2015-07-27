@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <stdexcept>
 
+#include "sceneelementdata.hpp"
+
 // Pure abstract class, encapsulating
 // every displayable scene object.
 
@@ -17,7 +19,16 @@ public:
 
     // previous and next SceneElement in the list, it can be "NULL".
     SceneElement * previous, * next;
-private:
+
+    void addElement(SceneElement*);
+    void autoRemove();
+
+    // accessor for data
+    SceneElementData * getData();
+protected:
+
+    // data storing of the element
+    SceneElementData * data;
 };
 
 #endif // SCENEELEMENT_HPP

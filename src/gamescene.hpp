@@ -4,20 +4,26 @@
 #include <vector>
 #include "interface.hpp"
 #include "sceneelement.hpp"
+#include "scenecircle.hpp"
+#include "mapreader.hpp"
 
 class GameScene : public InterfaceElement
 {
 public:
-    GameScene();
+    GameScene(MapReader&);
     ~GameScene();
 
     virtual void update();
 private:
     // graphic elements to display
-    std::vector<SceneElement> elements;
+    SceneElement elements;
 
     // current time
     float current_time;
+
+    MapReader& map_reader;
+
+    sf::RenderWindow& window;
 };
 
 #endif // GAMESCENE_HPP

@@ -7,11 +7,8 @@
 class SceneCircle : public SceneElement
 {
 public:
-    SceneCircle(sf::RenderWindow& window);
+    SceneCircle(sf::RenderWindow& window, SceneElementData * data);
     ~SceneCircle();
-
-    // initialize the sprites
-    void initialize(float time, float duration, float ratio_before_click, int radius, sf::Vector2f position, sf::Color color);
 
     // prepare the display position
     void prepare(float time);
@@ -24,16 +21,8 @@ private:
     sf::Texture circle_tex;
     sf::Sprite circle_1, circle_2;
 
-    // about time
-    float click_time, duration, ratio_before_click;
-
-    int radius;
-
-    sf::Vector2f position;
-
-    sf::Color color;
-
     sf::Vector2f pos_circle_1, pos_circle_2;
+
     sf::RenderWindow& window;
 };
 
