@@ -1,20 +1,22 @@
 #include "scenecircle.hpp"
 
 
-SceneCircle::SceneCircle(sf::RenderWindow& window)
+SceneCircle::SceneCircle(sf::RenderWindow& window, SceneElementData * data)
     : window(window), data(data)
 {
+    casted_data = (SceneCircleData*)data;
+
     // create image, texture and sprites
-    circle_image.create(2 * data, 2 * radius, sf::Color(0,0,0,0));
+    circle_image.create(2 * casted_data->getRadius(), 2 * casted_data->getRadius(), sf::Color(0,0,0,0));
 
     // dessin du disque
-    for(unsigned int x = 0; x != 2 * radius; x++)
+    for(unsigned int x = 0; x != 2 * casted_data->getRadius(); x++)
     {
-        for(unsigned int y = 0; y != 2 * radius; y++)
+        for(unsigned int y = 0; y != 2 * casted_data->getRadius(); y++)
         {
-            if(distance(x,y,radius,radius) <= radius)
+            if(distance(x,y,casted_data->getRadius(),casted_data->getRadius()) <= casted_data->getRadius())
             {
-                circle_image.setPixel(x,y,color);
+                circle_image.setPixel(x,y,casted_data->getColor());
             }
         }
     }
@@ -29,12 +31,12 @@ SceneCircle::~SceneCircle()
 
 }
 
-void SceneCircle::prepare(float time)
+void SceneCircle::prepare(sf::Time time)
 {
     // calculation of both positions
-    if(time < click_time) // before click time
+    if(time < casted_data->getClickTime()) // before click time
     {
-        pos_circle_1.x = position.x - 2 * radius + static_cast<int>(static_cast<float>(radius) * (time - (click_time - duration * ratio_before_click)) / (duration * ratio_before_click));
+        pos_circle_1.x = casted_data->.x - 2 * radius + static_cast<int>(static_cast<float>(radius) * (time - (click_time - duration * ratio_before_click)) / (duration * ratio_before_click));
         pos_circle_1.y = position.y - radius;
         pos_circle_2.x = position.x + (position.x - pos_circle_1.x) - 2 * radius;
         pos_circle_2.y = pos_circle_1.y;

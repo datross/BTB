@@ -2,6 +2,7 @@
 #define SCENECIRCLE_HPP
 
 #include "sceneelement.hpp"
+#include "scenecircledata.hpp"
 #include "utils.hpp"
 
 class SceneCircle : public SceneElement
@@ -24,6 +25,8 @@ private:
     sf::Vector2f pos_circle_1, pos_circle_2;
 
     sf::RenderWindow& window;
+
+    SceneCircleData * casted_data;
 };
 
 #endif // SCENECIRCLE_HPP
