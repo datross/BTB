@@ -18,6 +18,7 @@ public:
   ~MapReader();
   void startSong();
   std::vector<SceneElementData*> getNewElements();
+  sf::Time getTime();
 
 private :
   std::vector<SceneElementData*> scene_elements;

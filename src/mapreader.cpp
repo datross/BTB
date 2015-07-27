@@ -20,6 +20,7 @@ void MapReader::startSong()
   map_data.song->play();
 }
 
+//This function returns the elements which have never been displayed before but which have to be displayed starting from now.
 vector<SceneElementData*> MapReader::getNewElements()
 {
   vector<SceneElementData*> ret;
@@ -35,6 +36,12 @@ vector<SceneElementData*> MapReader::getNewElements()
   return ret;
 }
 
+
+//This function return the time elapsed since the begining of the song
+sf::Time MapReader::getTime()
+{
+  return clock.getElapsedTime();
+}
 
 MapReader::~MapReader()
 {
