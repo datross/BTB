@@ -7,14 +7,15 @@
 #include "utils.hpp"
 #include <SFML/Graphics.hpp>
 #include <stdexcept>
+#include <string>
 
 class SceneCircleData : public SceneElementData
 {
 public :
-  SceneCircleData(int circleID, const MapData& map_data);
+  SceneCircleData(int circleID, const MapData& map_data);  
   
-  int getRadius();
-  sf::Color getColor();
+  int getRadius() const;
+  sf::Color getColor() const;
   
 
 };

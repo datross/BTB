@@ -20,20 +20,21 @@ void MapReader::startSong()
   map_data.song->play();
 }
 
-const SceneElementData& MapReader::getSceneElementData(int id)
+vector<SceneElementData*> MapReader::getNewElements()
 {
-  return (*scene_elements[id]);
+  vector<SceneElementData*> ret;
+  for(int i = 0; i < static_cast<int>(scene_elements.size()); i++)
+    {
+      if(scene_elements[i]->hasToEmerge(clock.getElapsedTime()))
+	{
+	  ret.push_back(scene_elements[i]);
+	  scene_elements[i]->emerge();
+	}
+    }
+  std::sort(ret.begin(),ret.end(),SceneElementData::ClickComparison());
+  return ret;
 }
 
-vector<int> idsToDisplay()
-{
-  
-}
-
-vector<int> idsToRemove()
-{
-  
-}
 
 MapReader::~MapReader()
 {
