@@ -6,6 +6,8 @@
 #include "sceneelementdata.hpp"
 #include "scenecircledata.hpp"
 #include "mapdata.hpp"
+#include <algorithm>
+
 
 #include <SFML/System.hpp>
 
@@ -18,7 +20,7 @@ public:
   std::vector<SceneElementData*> getNewElements();
 
 private :
-  std::vector<SceneElementData* > scene_elements;
+  std::vector<SceneElementData*> scene_elements;
   const MapData& map_data;
   sf::Clock clock;
   std::vector<int> ids_displayed;

@@ -20,6 +20,20 @@ void MapReader::startSong()
   map_data.song->play();
 }
 
+vector<SceneElementData*> MapReader::getNewElements()
+{
+  vector<SceneElementData*> ret;
+  for(int i = 0; i < static_cast<int>(scene_elements.size()); i++)
+    {
+      if(scene_elements[i]->hasToEmerge(clock.getElapsedTime()))
+	{
+	  ret.push_back(scene_elements[i]);
+	  scene_elements[i]->emerge();
+	}
+    }
+  std::sort(ret.begin(),ret.end(),SceneElementData::ClickComparison());
+  return ret;
+}
 
 
 MapReader::~MapReader()

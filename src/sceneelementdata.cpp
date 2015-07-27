@@ -2,13 +2,29 @@
 
 using namespace std;
 
-SceneElementData::SceneElementData(int elementID , const MapData& map_data) : elementID(elementID), map_data(map_data)
+SceneElementData::SceneElementData(int elementID , const MapData& map_data) : elementID(elementID), map_data(map_data), emerged(false)
 {
   if(elementID >= static_cast<int>(map_data.scene_data.size()))
     throw invalid_argument("The ID of the SceneElement is incorrect.");
 }
 
-sf::Time SceneElementData::getTime() const
+bool SceneElementData::hasToEmerge(const sf::Time& timeElapsed) const
+{
+  return !emerged && timeElapsed >= getEmergence() && timeElapsed <= getEmergence() + getDuration();
+}
+
+void SceneElementData::emerge()
+{
+  emerged = true;
+}
+
+void SceneElementData::kill()
+{
+  emerged = false;
+}
+
+
+sf::Time SceneElementData::getClickTime() const
 {
   return map_data.scene_data[elementID].time;
 }
@@ -28,12 +44,7 @@ string SceneElementData::getType() const
   return map_data.scene_data[elementID].type;
 }
 
-bool SceneElementData::isActive(const sf::Time& timeElapsed) const
-{
-  return timeElapsed >= getTime() && timeElapsed <= getTime() + getDuration();
-}
-
 sf::Time SceneElementData::getEmergence() const
 {
-  return getTime() - getRatio() * getDuration();
+  return getClickTime() - getRatio() * getDuration();
 }
