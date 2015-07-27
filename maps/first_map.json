@@ -9,7 +9,8 @@
 			"ratio" : 0.7,
 			"specificity" : {
 				"radius" : 30,
-				"color" : "FF0000FF"
+				"color" : "FF0000FF",
+				"position" : [100,100]
 			}
 
 
@@ -21,7 +22,8 @@
 			"ratio" : 0.7,
 			"specificity" : {
 				"radius" : 30,
-				"color" : "0000FFFF"
+				"color" : "0000FFFF",
+				"position" : [200,200]
 			}
 					
 		}

@@ -28,14 +28,30 @@ int SceneCircleData::getRadius() const
 
 sf::Color SceneCircleData::getColor() const
 {
+  sf::Color color;
   try
     {
-      sf::Color color = parseColor(map_data.scene_data[elementID].specificity["color"]);
+      color = parseColor(map_data.scene_data[elementID].specificity["color"]);
       
     }
   catch(const exception& e)
     {
       cerr <<"Error in loading circle no "<<elementID<< " : couldn't find color property"<<endl;
+      cerr <<"Json error : "<<e.what()<<endl;
+    }
+}
+
+sf::Vector2f SceneCircleData::getPosition() const
+{
+  sf::Vector2f position;
+    try
+    {
+      position = parsePosition(map_data.scene_data[elementID].specificity["position"]);
+      
+    }
+  catch(const exception& e)
+    {
+      cerr <<"Error in loading circle no "<<elementID<< " : couldn't find position property"<<endl;
       cerr <<"Json error : "<<e.what()<<endl;
     }
 }

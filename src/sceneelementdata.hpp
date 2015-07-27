@@ -9,6 +9,9 @@
 #include <stdexcept>
 #include <string>
 
+sf::Vector2f parsePosition(const json& json_position);
+
+
 class SceneElementData
 {
 public :

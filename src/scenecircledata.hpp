@@ -16,6 +16,7 @@ public :
   
   int getRadius() const;
   sf::Color getColor() const;
+  sf::Vector2f getPosition() const;
   
 
 };
