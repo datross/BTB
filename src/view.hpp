@@ -7,7 +7,7 @@
 class View
 {
 public:
-    View();
+    View(MapReader*);
     ~View();
 
     void show();
@@ -16,7 +16,8 @@ public:
     sf::RenderWindow* window;
 
 private:
-    std::vector<InterfaceElement*> elements;
+
+    GameScene * game_scene;
 };
 
 #endif // VIEW_HPP
