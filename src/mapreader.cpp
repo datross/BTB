@@ -5,12 +5,10 @@ using namespace std;
 MapReader::MapReader(const MapData& map_data) : map_data(map_data),scene_elements(map_data.scene_data.size()), last_id_not_displayed(0)
 {
   //loading all the scene elements
-  for(int i; i<static_cast<int>(map_data.scene_data.size());i++)
+  for(int i = 0; i<static_cast<int>(map_data.scene_data.size());i++)
     {
       if (map_data.scene_data[i].type == "circle")
 	scene_elements[i] = new SceneCircleData(i,map_data); 
-
-
       else
 	throw invalid_argument("The string \"" + map_data.scene_data[i].type + "\" doesn't name a type.");
     }
@@ -69,6 +67,6 @@ sf::Time MapReader::getTime() const
 
 MapReader::~MapReader()
 {
-  for( int i; i < static_cast<int>(map_data.scene_data.size()); i++)
+  for( int i = 0; i < static_cast<int>(map_data.scene_data.size()); i++)
     delete scene_elements[i];
 }

@@ -15,7 +15,7 @@ void Controller::update()
 
 void Controller::eventLoop()
 {
-  /*while (view.window->isOpen())
+  while (view.window->isOpen())
     {
       sf::Event event;
       while (view.window->pollEvent(event))
@@ -24,7 +24,6 @@ void Controller::eventLoop()
 	    view.window->close();
         }
       view.show();
-
-      }*/
+     }
 }
 
