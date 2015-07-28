@@ -42,8 +42,9 @@ void GameScene::update(sf::Time time)
         }
     }
 
-    // displaying elements
+    // preparing elements
     elements->prepare(current_time);
+
 }
 
 void GameScene::show(sf::Rect<int> clip)
