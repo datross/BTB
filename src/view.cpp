@@ -13,5 +13,9 @@ View::~View()
 
 void View::show()
 {
+    window.clear();
 
+    // displaying InterfaceElements...
+
+    window.display();
 }
