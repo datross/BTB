@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Controller::Controller(MapReader* reader) : reader(reader)
+Controller::Controller(MapReader* reader) : reader(reader),view(reader)
 {
   
   reader->startSong();
@@ -24,6 +24,7 @@ void Controller::eventLoop()
 	    view.window->close();
         }
       view.show();
-     }
+
+      }
 }
 
