@@ -10,3 +10,8 @@ View::~View()
 {
 
 }
+
+void View::show()
+{
+
+}
