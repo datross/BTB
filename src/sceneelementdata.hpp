@@ -31,9 +31,9 @@ public :
   class EmergenceComparison
   {
   public :
-    bool operator()(const SceneElementData& sed1, const SceneElementData& sed2)
+    bool operator()(const SceneElementData* sed1, const SceneElementData* sed2)
     {
-      return sed1.getEmergence() <= sed2.getEmergence();
+      return sed1->getEmergence() <= sed2->getEmergence();
     }
   };
 

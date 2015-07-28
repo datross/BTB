@@ -1,7 +1,5 @@
 #include "mapdata.hpp"
-#include <fstream>
-#include <sstream>
-#include <iostream>
+
 
 
 using namespace std;

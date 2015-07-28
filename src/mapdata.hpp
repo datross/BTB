@@ -6,6 +6,9 @@
 #include "utils.hpp"
 #include <vector>
 #include <string>
+#include <fstream>
+#include <sstream>
+#include <iostream>
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
 
