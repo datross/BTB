@@ -10,13 +10,13 @@
 class Controller
 {
 public :
-  Controller(MapReader& file);
+  Controller(MapReader* reader);
   void update();
   void eventLoop();
  
 private : 
   sf::Event event;
-  MapReader& reader;
+  MapReader* reader;
   View view;
 
 };

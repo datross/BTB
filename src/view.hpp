@@ -13,7 +13,7 @@ public:
     void show();
 
     // fenêtre, il faut appeler "create" après dans le constructeur
-    sf::RenderWindow window;
+    sf::RenderWindow* window;
 
 private:
     std::vector<InterfaceElement*> elements;

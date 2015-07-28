@@ -2,9 +2,10 @@
 
 using namespace std;
 
-Controller::Controller(MapReader& reader) : reader(reader),view()
+Controller::Controller(MapReader* reader) : reader(reader)
 {
-  reader.startSong();
+  
+  reader->startSong();
 }
 
 void Controller::update()
@@ -14,16 +15,16 @@ void Controller::update()
 
 void Controller::eventLoop()
 {
-  while (view.window.isOpen())
+  /*while (view.window->isOpen())
     {
       sf::Event event;
-      while (view.window.pollEvent(event))
+      while (view.window->pollEvent(event))
         {
 	  if (event.type == sf::Event::Closed)
-	    view.window.close();
+	    view.window->close();
         }
       view.show();
 
-      }
+      }*/
 }
 

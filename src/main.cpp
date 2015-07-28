@@ -27,10 +27,13 @@ int main()
         window.draw(shape);
         window.display();
 	}*/
-  MapData data = MapData("maps/first_map.json");
-  MapReader reader = MapReader(data);
-  Controller control = Controller(reader);
-  control.eventLoop();
+  MapData data("maps/first_map.json");
+  
+  MapReader reader(data);
+  cout<<"hey"<<endl;
+  Controller control(&reader);
+  //control.eventLoop();
+  //View view();
 
     return 0;
 }
