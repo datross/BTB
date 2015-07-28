@@ -42,7 +42,7 @@ vector<SceneElementData*> MapReader::getNewElements()
     }
   last_id_not_displayed = i;
 
-  //looking for the elements which have their clickTime before the emrging elements' clickTime.
+  //looking for the elements which have their clickTime before the emerging elements' clickTime.
   while(i < static_cast<int>(scene_elements.size()) && scene_elements[i]->getEmergence() <= max_click_time)
     {
       if(scene_elements[i]->getClickTime() <= max_click_time)
