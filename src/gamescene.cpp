@@ -30,7 +30,6 @@ void GameScene::update(sf::Time time)
         if(type == "circle")
         {
             SceneCircle * circle = new SceneCircle(window, *it);
-
             if(elements == NULL)
             {
                 elements = circle;
@@ -42,9 +41,11 @@ void GameScene::update(sf::Time time)
         }
     }
 
-    // preparing elements
-    elements->prepare(current_time);
-
+    if(elements != NULL)
+    {
+        // preparing elements
+        elements->prepare(time);
+    }
 }
 
 void GameScene::show(sf::Rect<int> clip)
@@ -53,7 +54,7 @@ void GameScene::show(sf::Rect<int> clip)
     {
         if(elements != NULL)
         {
-            elements->show();
+            elements->show(current_time);
         }
     }
 }
@@ -65,7 +66,15 @@ void GameScene::removeUselessElements(SceneElement* element)
         if(current_time > element->getData()->getEmergence() + element->getData()->getDuration())
         {
             SceneElement * sauv = element->next;
+            bool alone = false;
+
+            if(element->previous == NULL)
+                alone = true;
+
             element->autoRemove();
+
+            if(alone)
+                elements = sauv;
             removeUselessElements(sauv);
         }
     }

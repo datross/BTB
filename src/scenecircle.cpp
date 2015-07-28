@@ -2,20 +2,20 @@
 
 
 SceneCircle::SceneCircle(sf::RenderWindow * window, SceneElementData * a_data)
-    : window(window)//, data(a_data)
+    : window(window)
 {
     data = a_data;
     casted_data = dynamic_cast<SceneCircleData*>(data);
 
     // create image, texture and sprites
-    circle_image.create(2 * casted_data->getRadius(), 2 * casted_data->getRadius(), sf::Color(0,0,0,0));
+    circle_image.create(2 * casted_data->getRadius(), 2 * casted_data->getRadius(), sf::Color(255,0,0,0));
 
     // dessin du disque
     for(unsigned int x = 0; x != 2 * casted_data->getRadius(); x++)
     {
         for(unsigned int y = 0; y != 2 * casted_data->getRadius(); y++)
         {
-            if(distance(x,y,casted_data->getRadius(),casted_data->getRadius()) <= casted_data->getRadius())
+            if(/*distance(x,y,casted_data->getRadius(),casted_data->getRadius()) <= casted_data->getRadius()*/true)
             {
                 circle_image.setPixel(x,y,casted_data->getColor());
             }
@@ -52,7 +52,7 @@ void SceneCircle::prepare(sf::Time time)
             pos_circle_2.y = pos_circle_1.x;
         }
 
-        circle_1.setPosition(pos_circle_1);
+        circle_1.setPosition(0.,0.);
         circle_2.setPosition(pos_circle_2);
     }
 
@@ -74,6 +74,6 @@ void SceneCircle::show(sf::Time time)
     // call of the next element
     if(next != NULL)
     {
-        next->show();
+        next->show(time);
     }
 }

@@ -11,7 +11,7 @@ void SceneElement::prepare(sf::Time time)
 
 }
 
-void SceneElement::show()
+void SceneElement::show(sf::Time time)
 {
 
 }

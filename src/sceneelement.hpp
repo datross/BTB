@@ -15,7 +15,7 @@ public:
     SceneElement();
 
     virtual void prepare(sf::Time time);
-    virtual void show();
+    virtual void show(sf::Time time);
 
     // previous and next SceneElement in the list, it can be "NULL".
     SceneElement * previous, * next;
