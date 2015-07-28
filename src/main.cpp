@@ -3,18 +3,16 @@
 #include "mapdata.hpp"
 #include "scenecircledata.hpp"
 #include "mapreader.hpp"
-
+#include "controller.hpp"
 using namespace std;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+  /*sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
-    MapData testMap = MapData("maps/first_map.json");
-    MapReader reader = MapReader(testMap);
-    reader.startSong();
+    
 
     while (window.isOpen())
     {
@@ -28,7 +26,11 @@ int main()
         window.clear();
         window.draw(shape);
         window.display();
-    }
+	}*/
+  MapData data = MapData("maps/first_map.json");
+  MapReader reader = MapReader(data);
+  Controller control = Controller(reader);
+  control.eventLoop();
 
     return 0;
 }
