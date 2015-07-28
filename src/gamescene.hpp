@@ -16,6 +16,9 @@ public:
     virtual void update(sf::Time);
     virtual void show(sf::Rect<int>);
 private:
+    // remove useless elements
+    void removeUselessElements(SceneElement*);
+
     // graphic elements to display
     SceneElement elements;
 

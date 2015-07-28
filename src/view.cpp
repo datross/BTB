@@ -10,8 +10,3 @@ View::~View()
 {
 
 }
-
-void View::setMode(Mode mode)
-{
-    current_mode = mode;
-}

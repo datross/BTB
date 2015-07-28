@@ -79,4 +79,3 @@ void SceneElement::autoRemove()
     // delete itself
     delete this;
 }
-
