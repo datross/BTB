@@ -10,12 +10,12 @@ public :
   InterfaceElement();
   void setActivity(const bool active);
   void setVisibility(const bool visible);
-  bool isActive();
-  bool isVisible();
+  bool isActive() const;
+  bool isVisible() const;
 
   //THESE TWO FUNCTIONS HAVE TO BE REIMPLEMENTED.
   virtual void update();
-  virtual void show(sf::Rect<int>);
+  virtual void show(const sf::View&);
 
 private :
   bool active;

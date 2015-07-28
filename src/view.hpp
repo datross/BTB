@@ -2,6 +2,7 @@
 #define VIEW_HPP
 
 #include "gamescene.hpp"
+#include "timeviewer.hpp"
 #include <vector>
 
 class View
@@ -18,6 +19,7 @@ public:
 private:
 
     GameScene * game_scene;
+  TimeViewer* tv;
 
     MapReader * map_reader;
 };

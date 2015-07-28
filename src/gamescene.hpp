@@ -14,7 +14,7 @@ public:
     ~GameScene();
 
     void update(sf::Time);
-    void show(sf::Rect<int>);
+    void show(const sf::View&);
 private:
     // remove useless elements
     void removeUselessElements(SceneElement*);

@@ -8,7 +8,7 @@ void InterfaceElement::setActivity(const bool a_active)
     active = a_active;
 }
 
-bool InterfaceElement::isActive()
+bool InterfaceElement::isActive() const
 {
     return active;
 }
@@ -18,7 +18,7 @@ void InterfaceElement::setVisibility(const bool a_visible)
     visible = a_visible;
 }
 
-bool InterfaceElement::isVisible()
+bool InterfaceElement::isVisible() const
 {
     return visible;
 }
@@ -28,7 +28,7 @@ void InterfaceElement::update()
 
 }
 
-void InterfaceElement::show(sf::Rect<int>)
+void InterfaceElement::show(const sf::View& view)
 {
 
 }

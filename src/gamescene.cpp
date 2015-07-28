@@ -48,7 +48,7 @@ void GameScene::update(sf::Time time)
     }
 }
 
-void GameScene::show(sf::Rect<int> clip)
+void GameScene::show(const sf::View& clip)
 {
     if(isVisible())
     {
