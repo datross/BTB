@@ -16,7 +16,6 @@ int main()
     MapReader reader = MapReader(testMap);
     reader.startSong();
 
-
     while (window.isOpen())
     {
         sf::Event event;

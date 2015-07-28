@@ -15,7 +15,7 @@ public:
     void prepare(sf::Time time);
 
     // display the sprites
-    void show();
+    void show(sf::Time time);
 private:
     // images
     sf::Image circle_image;

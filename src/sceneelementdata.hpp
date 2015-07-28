@@ -17,7 +17,7 @@ public :
   SceneElementData(int elementID , const MapData& map_data);
 
   //accessors
-  sf::Time getClickTime() const;
+  virtual sf::Time getClickTime() const;
   sf::Time getDuration() const;
   sf::Time getEmergence() const;
   float getRatio() const;

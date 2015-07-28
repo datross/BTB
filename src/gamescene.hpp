@@ -10,10 +10,11 @@
 class GameScene : public InterfaceElement
 {
 public:
-    GameScene(MapReader*);
+    GameScene(MapReader*, sf::RenderWindow*);
     ~GameScene();
 
-    virtual void update();
+    virtual void update(sf::Time);
+    virtual void show(sf::Rect<int>);
 private:
     // graphic elements to display
     SceneElement elements;

@@ -1,7 +1,7 @@
 #include "gamescene.hpp"
 
-GameScene::GameScene(MapReader * reader)
-    : map_reader(reader)
+GameScene::GameScene(MapReader * reader, sf::RenderWindow* window)
+    : map_reader(reader), window(window)
 {
 
 }
@@ -11,8 +11,10 @@ GameScene::~GameScene()
 
 }
 
-void GameScene::update()
+void GameScene::update(sf::Time time)
 {
+    current_time = time;
+
     // looking for new elements
     std::vector<SceneElementData*> new_elements = map_reader->getNewElements();
 
@@ -31,5 +33,12 @@ void GameScene::update()
 
     // displaying elements
     elements.prepare(current_time);
-    elements.show();
+}
+
+void GameScene::show(sf::Rect<int> clip)
+{
+    if(isVisible())
+    {
+        elements.show();
+    }
 }

@@ -8,7 +8,13 @@ MapReader::MapReader(const MapData& map_data) : map_data(map_data),scene_element
   for(int i; i<static_cast<int>(map_data.scene_data.size());i++)
     {
       if (map_data.scene_data[i].type == "circle")
-	scene_elements[i] = new SceneCircleData(i,map_data);
+          try {
+    scene_elements[i] = new SceneCircleData(i,map_data); }
+      catch(const exception& e)
+      {
+          cerr << e.what();
+      }
+
       else
 	throw invalid_argument("The string \"" + map_data.scene_data[i].type + "\" doesn't name a type.");
     }
