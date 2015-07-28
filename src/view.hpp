@@ -18,6 +18,8 @@ public:
 private:
 
     GameScene * game_scene;
+
+    MapReader * map_reader;
 };
 
 #endif // VIEW_HPP

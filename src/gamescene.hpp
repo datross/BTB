@@ -13,14 +13,14 @@ public:
     GameScene(MapReader*, sf::RenderWindow*);
     ~GameScene();
 
-    virtual void update(sf::Time);
-    virtual void show(sf::Rect<int>);
+    void update(sf::Time);
+    void show(sf::Rect<int>);
 private:
     // remove useless elements
     void removeUselessElements(SceneElement*);
 
     // graphic elements to display
-    SceneElement elements;
+    SceneElement * elements;
 
     // current time
     sf::Time current_time;

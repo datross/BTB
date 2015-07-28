@@ -14,8 +14,8 @@ public :
   bool isVisible();
 
   //THESE TWO FUNCTIONS HAVE TO BE REIMPLEMENTED.
-  virtual void update() = 0; 
-  virtual void show(sf::Rect<int>) = 0;
+  virtual void update();
+  virtual void show(sf::Rect<int>);
 
 private :
   bool active;

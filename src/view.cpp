@@ -3,9 +3,10 @@
 
 using namespace std;
 View::View(MapReader* map_reader)
+    : map_reader(map_reader)
 {
   // création de le fenêtre
-  window = new sf::RenderWindow(sf::VideoMode(200, 200), "Bite The Beat v0.0");
+  window = new sf::RenderWindow(sf::VideoMode(500, 500), "Bite The Beat v0.0");
 
   game_scene = new GameScene(map_reader, window);
   game_scene->setActivity(true);
@@ -19,10 +20,14 @@ View::~View()
 
 void View::show()
 {
+    sf::Rect<int> r(0,0,0,0);
+
   window->clear();
 
   // displaying InterfaceElements...
-  game_scene->show();
+  game_scene->update(map_reader->getTime());
+
+  game_scene->show(r);
 
   window->display();
 }

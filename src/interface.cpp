@@ -23,6 +23,16 @@ bool InterfaceElement::isVisible()
     return visible;
 }
 
+void InterfaceElement::update()
+{
+
+}
+
+void InterfaceElement::show(sf::Rect<int>)
+{
+
+}
+
 
 
 

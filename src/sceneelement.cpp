@@ -2,7 +2,8 @@
 
 SceneElement::SceneElement()
 {
-
+    next = NULL;
+    previous = NULL;
 }
 
 void SceneElement::prepare(sf::Time time)
@@ -58,22 +59,21 @@ void SceneElement::autoRemove()
 {
     // detach from the chain
 
-    if(next == NULL && previous == NULL)
+    if(next != NULL || previous != NULL)
     {
-        // nothing to do
-    }
-    else if(next == NULL)
-    {
-        previous->next = NULL;
-    }
-    else if(previous = NULL)
-    {
-        next->previous = NULL;
-    }
-    else
-    {
-        next->previous = previous;
-        previous->next = next;
+        if(next == NULL)
+        {
+            previous->next = NULL;
+        }
+        else if(previous == NULL)
+        {
+            next->previous = NULL;
+        }
+        else
+        {
+            next->previous = previous;
+            previous->next = next;
+        }
     }
 
     // delete itself

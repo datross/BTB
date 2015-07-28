@@ -3,7 +3,7 @@
 GameScene::GameScene(MapReader * reader, sf::RenderWindow* window)
     : map_reader(reader), window(window)
 {
-
+    elements = NULL;
 }
 
 GameScene::~GameScene()
@@ -16,7 +16,7 @@ void GameScene::update(sf::Time time)
     current_time = time;
 
     // removing useless elements
-    removeUselessElements(&elements);
+    removeUselessElements(elements);
 
     // looking for new elements
     std::vector<SceneElementData*> new_elements = map_reader->getNewElements();
@@ -30,18 +30,30 @@ void GameScene::update(sf::Time time)
         if(type == "circle")
         {
             SceneCircle * circle = new SceneCircle(window, *it);
+
+            if(elements == NULL)
+            {
+                elements = circle;
+            }
+            else
+            {
+                elements->addElement(circle);
+            }
         }
     }
 
     // displaying elements
-    elements.prepare(current_time);
+    elements->prepare(current_time);
 }
 
 void GameScene::show(sf::Rect<int> clip)
 {
     if(isVisible())
     {
-        elements.show();
+        if(elements != NULL)
+        {
+            elements->show();
+        }
     }
 }
 
