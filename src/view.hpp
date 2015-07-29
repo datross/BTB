@@ -20,6 +20,7 @@ private:
 
     GameScene * game_scene;
   TimeViewer* tv;
+  sf::Font font;
 
     MapReader * map_reader;
 };
