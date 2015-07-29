@@ -15,7 +15,7 @@ View::View(MapReader* map_reader)
   game_scene->setVisibility(true);
 
   font.loadFromFile("font/augusta.ttf");
-  tv = new TimeViewer(window);
+  tv = new DataViewer(window);
   tv->setFont(font);
   tv->setCharacterSize(24);
   tv->setPosition(0,0);
