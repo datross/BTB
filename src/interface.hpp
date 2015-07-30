@@ -1,9 +1,10 @@
+/*** This file contains the mother class of every big displayable element of the program ***/
+
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
 #include <SFML/Graphics.hpp>
 
-//this class is the mother class of all the class wich can be updated and then displayed
 class InterfaceElement
 {
 public :
@@ -14,7 +15,11 @@ public :
   bool isVisible() const;
 
   //THESE TWO FUNCTIONS HAVE TO BE REIMPLEMENTED.
+
+  // first update the element
   virtual void update();
+
+  // and then show it
   virtual void show(const sf::View&);
 
 private :

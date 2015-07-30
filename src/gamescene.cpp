@@ -8,7 +8,8 @@ GameScene::GameScene(MapReader * reader, sf::RenderWindow* window)
 
 GameScene::~GameScene()
 {
-
+    // deletes the chain
+    deleteChain(elements);
 }
 
 void GameScene::update(sf::Time time)
@@ -30,6 +31,7 @@ void GameScene::update(sf::Time time)
         if(type == "circle")
         {
             SceneCircle * circle = new SceneCircle(window, *it);
+
             if(elements == NULL)
             {
                 elements = circle;
@@ -59,23 +61,40 @@ void GameScene::show(const sf::View& clip)
     }
 }
 
+// recursive function which remove every element which has not to be displayed anymore
 void GameScene::removeUselessElements(SceneElement* element)
 {
     if(element != NULL)
     {
+        // if the element has to be deleted
         if(current_time > element->getData()->getEmergence() + element->getData()->getDuration())
         {
             SceneElement * sauv = element->next;
-            bool alone = false;
+            bool first = false;
 
             if(element->previous == NULL)
-                alone = true;
+                first = true; // first of the chain
 
             element->autoRemove();
 
-            if(alone)
+            if(first)
                 elements = sauv;
+
             removeUselessElements(sauv);
         }
+    }
+}
+
+// recursive function
+void GameScene::deleteChain(SceneElement * element)
+{
+    if(element != NULL)
+    {
+        if(element->next != NULL)
+        {
+            deleteChain(element->next);
+        }
+
+        delete element;
     }
 }
