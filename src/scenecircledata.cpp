@@ -39,6 +39,7 @@ sf::Color SceneCircleData::getColor() const
       cerr <<"Error in loading circle no "<<elementID<< " : couldn't find color property"<<endl;
       cerr <<"Json error : "<<e.what()<<endl;
     }
+  return color;
 }
 
 
