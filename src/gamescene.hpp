@@ -1,3 +1,6 @@
+/*** This file contains the InterfaceElement class relating
+ * to the game display. ***/
+
 #ifndef GAMESCENE_HPP
 #define GAMESCENE_HPP
 
@@ -13,8 +16,12 @@ public:
     GameScene(MapReader*, sf::RenderWindow*);
     ~GameScene();
 
+    // computes circles' positions, and update the SceneElement chain
     void update(sf::Time);
-    void show(const sf::View&);
+
+    // display the game
+    void show(const sf::View&); // /!\ To do : make the parameter usefull
+
 private:
     // remove useless elements
     void removeUselessElements(SceneElement*);

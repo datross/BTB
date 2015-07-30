@@ -1,3 +1,7 @@
+/*** This file contains the SceneCircle, which is a graphic circle
+ * element.
+ * ***/
+
 #ifndef SCENECIRCLE_HPP
 #define SCENECIRCLE_HPP
 
@@ -22,10 +26,12 @@ private:
     sf::Texture circle_tex;
     sf::Sprite circle_1, circle_2;
 
+    // positions of both images to display
     sf::Vector2f pos_circle_1, pos_circle_2;
 
     sf::RenderWindow * window;
 
+    // enables access to SceneCircleData methods
     SceneCircleData * casted_data;
 };
 

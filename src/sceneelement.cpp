@@ -25,6 +25,7 @@ void SceneElement::addElement(SceneElement * element)
 {
     // sorting by click time in the chain
 
+    // if it has to be inserted just before this element
     if(data->getClickTime() >= element->getData()->getClickTime())
     {
         element->next = this;
@@ -40,7 +41,7 @@ void SceneElement::addElement(SceneElement * element)
             previous = element;
         }
     }
-    else
+    else // otherwise it will be inserted later in the chain
     {
         if(next == NULL)
         {
@@ -76,6 +77,6 @@ void SceneElement::autoRemove()
         }
     }
 
-    // delete itself
+    // deletes itself
     delete this;
 }

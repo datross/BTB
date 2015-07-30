@@ -1,3 +1,6 @@
+/*** This file contains the View part of the MVC architecture.
+***/
+
 #ifndef VIEW_HPP
 #define VIEW_HPP
 
@@ -11,16 +14,19 @@ public:
     View(MapReader*);
     ~View();
 
+    // displays the program
     void show();
 
-    // fenêtre, il faut appeler "create" après dans le constructeur
+    // window on which the program is displayed
     sf::RenderWindow* window;
 
 private:
 
+    // InterfaceElements to display
     GameScene * game_scene;
-  DataViewer* tv;
-  sf::Font font;
+    DataViewer* tv;
+
+    sf::Font font;
 
     MapReader * map_reader;
 };

@@ -10,7 +10,7 @@ SceneCircle::SceneCircle(sf::RenderWindow * window, SceneElementData * a_data)
     // create image, texture and sprites
     circle_image.create(2 * casted_data->getRadius(), 2 * casted_data->getRadius(), sf::Color(0,0,0,0));
 
-    // dessin du disque
+    // drawing the image to display
     for(unsigned int x = 0; x != 2 * casted_data->getRadius(); x++)
     {
         for(unsigned int y = 0; y != 2 * casted_data->getRadius(); y++)
@@ -34,9 +34,10 @@ SceneCircle::~SceneCircle()
 
 void SceneCircle::prepare(sf::Time time)
 {
+    // if it is time to display the element
     if(time > casted_data->getEmergence())
     {
-        // calculation of both positions
+        // calculation of both circles positions
         if(time < casted_data->getClickTime()) // before click time
         {
             pos_circle_1.x = casted_data->getPosition().x - 2 * casted_data->getRadius() + static_cast<int>(static_cast<float>(casted_data->getRadius()) * (time.asSeconds() - (casted_data->getClickTime().asSeconds() - casted_data->getDuration().asSeconds() * casted_data->getRatio())) / (casted_data->getDuration().asSeconds() * casted_data->getRatio()));
@@ -52,11 +53,12 @@ void SceneCircle::prepare(sf::Time time)
             pos_circle_2.y = pos_circle_1.x;
         }
 
+        // assigns positions to both sprites
         circle_1.setPosition(pos_circle_1);
         circle_2.setPosition(pos_circle_2);
     }
 
-    // call of the next element
+    // call of the next element in the chain
     if(next != NULL)
     {
         next->prepare(time);
@@ -65,14 +67,15 @@ void SceneCircle::prepare(sf::Time time)
 
 void SceneCircle::show(sf::Time time)
 {
+    // if it is time to show the element
     if(casted_data->getEmergence() < time)
     {
-        //std::cout << pos_circle_1.x << " " << pos_circle_1.y << std::endl;
+        // draw both circles on the window
         window->draw(circle_1);
         window->draw(circle_2);
     }
 
-    // call of the next element
+    // call of the next element in the chain
     if(next != NULL)
     {
         next->show(time);
