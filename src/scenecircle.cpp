@@ -50,7 +50,7 @@ void SceneCircle::prepare(sf::Time time)
             pos_circle_1.x = casted_data->getPosition().x - casted_data->getRadius();
             pos_circle_1.y = casted_data->getPosition().y - casted_data->getRadius();
             pos_circle_2.x = pos_circle_1.x;
-            pos_circle_2.y = pos_circle_1.x;
+            pos_circle_2.y = pos_circle_1.y;
         }
 
         // assigns positions to both sprites
