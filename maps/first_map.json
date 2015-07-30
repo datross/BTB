@@ -5,39 +5,15 @@
 		{ 
 			"type" : "circle",
 			"time" : 1,
-			"duration" : 1.5,
+			"duration" : 10.0,
 			"ratio" : 0.7,
 			"specificity" : {
 				"radius" : 30,
 				"color" : "FF0000FF",
-				"position" : [100,100]
+				"position" : [200,180]
 			}
 
 
-		},
-		{
-			"type" : "circle",
-			"time" : 2,
-			"duration" : 1.5,
-			"ratio" : 0.7,
-			"specificity" : {
-				"radius" : 30,
-				"color" : "0000FFFF",
-				"position" : [200,200]
-			}
-					
-		},
-		{
-			"type" : "circle",
-			"time" : 4,
-			"duration" : 1.5,
-			"ratio" : 0.7,
-			"specificity" : {
-				"radius" : 30,
-				"color" : "00FF00FF",
-				"position" : [150,300]
-			}
-					
-		}
+		}		
 	]
 }
