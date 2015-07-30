@@ -8,7 +8,8 @@ GameScene::GameScene(MapReader * reader, sf::RenderWindow* window)
 
 GameScene::~GameScene()
 {
-
+    // deletes the chain
+    deleteChain(elements);
 }
 
 void GameScene::update(sf::Time time)
@@ -81,5 +82,19 @@ void GameScene::removeUselessElements(SceneElement* element)
 
             removeUselessElements(sauv);
         }
+    }
+}
+
+// recursive function
+void GameScene::deleteChain(SceneElement * element)
+{
+    if(element != NULL)
+    {
+        if(element->next != NULL)
+        {
+            deleteChain(element->next);
+        }
+
+        delete element;
     }
 }

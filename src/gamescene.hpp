@@ -26,6 +26,9 @@ private:
     // remove useless elements
     void removeUselessElements(SceneElement*);
 
+    // deletes the entire chain
+    void deleteChain(SceneElement*);
+
     // graphic elements to display
     SceneElement * elements;
 
