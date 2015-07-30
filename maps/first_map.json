@@ -26,6 +26,18 @@
 				"position" : [200,200]
 			}
 					
+		},
+		{
+			"type" : "circle",
+			"time" : 4,
+			"duration" : 1.5,
+			"ratio" : 0.7,
+			"specificity" : {
+				"radius" : 30,
+				"color" : "00FF00FF",
+				"position" : [150,300]
+			}
+					
 		}
 	]
 }
