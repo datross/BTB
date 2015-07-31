@@ -12,7 +12,7 @@
 class SceneCircle : public SceneElement
 {
 public:
-    SceneCircle(sf::RenderWindow * window, SceneElementData * data);
+    SceneCircle(sf::RenderWindow * window, const SceneElementData * data);
     ~SceneCircle();
 
     // prepare the display position
@@ -32,7 +32,7 @@ private:
     sf::RenderWindow * window;
 
     // enables access to SceneCircleData methods
-    SceneCircleData * casted_data;
+    const SceneCircleData * casted_data;
 };
 
 #endif // SCENECIRCLE_HPP

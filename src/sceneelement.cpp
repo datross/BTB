@@ -16,7 +16,7 @@ void SceneElement::show(sf::Time time)
 
 }
 
-SceneElementData * SceneElement::getData()
+const SceneElementData * SceneElement::getData()
 {
     return data;
 }

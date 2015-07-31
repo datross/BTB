@@ -28,11 +28,11 @@ public:
     void autoRemove();
 
     // accessor for data
-    SceneElementData * getData();
+    const SceneElementData * getData();
 protected:
 
     // data storing of the element
-    SceneElementData * data;
+    const SceneElementData * data;
 };
 
 #endif // SCENEELEMENT_HPP

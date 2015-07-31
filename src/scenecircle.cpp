@@ -1,11 +1,11 @@
 #include "scenecircle.hpp"
 
 
-SceneCircle::SceneCircle(sf::RenderWindow * window, SceneElementData * a_data)
+SceneCircle::SceneCircle(sf::RenderWindow * window, const SceneElementData * a_data)
     : window(window)
 {
     data = a_data;
-    casted_data = dynamic_cast<SceneCircleData*>(data);
+    casted_data = dynamic_cast<const SceneCircleData*>(data);
 
     // create image, texture and sprites
     circle_image.create(2 * casted_data->getRadius(), 2 * casted_data->getRadius(), sf::Color(0,0,0,0));
@@ -23,6 +23,7 @@ SceneCircle::SceneCircle(sf::RenderWindow * window, SceneElementData * a_data)
     }
 
     circle_tex.loadFromImage(circle_image);
+    circle_tex.setSmooth(true);
     circle_1.setTexture(circle_tex, true);
     circle_2.setTexture(circle_tex, true);
 }
