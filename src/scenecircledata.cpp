@@ -15,7 +15,7 @@ int SceneCircleData::getScore(const sf::Time& click_moment, const sf::Vector2f& 
   if(distance(click_position,getPosition()) <= static_cast<float>(getRadius()))
     {
       if(click_moment >= getClickTime())//Careful : position DivisionBy Zero
-	return static_cast<int>( 100.0 * (static_cast<float>((getEmergence() + getDuration() - click_moment()).asMilliseconds()) / static_cast<float>((getDuration()* (1 - getRatio())).asMilliseconds())));
+	return static_cast<int>( 100.0 * (static_cast<float>((getEmergence() + getDuration() - click_moment).asMilliseconds()) / static_cast<float>((getDuration()* (1 - getRatio())).asMilliseconds())));
       else 
 	return static_cast<int>(100.0 * (static_cast<float>((click_moment - getEmergence()).asMilliseconds()) / static_cast<float>((getDuration()*  getRatio()).asMilliseconds())));
     }
