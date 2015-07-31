@@ -19,6 +19,7 @@ public :
   //accessors
   virtual int getScore(const sf::Time& click_moment, const sf::Vector2f& click_position) const
   {}
+
   sf::Time getClickTime() const;
   sf::Time getDuration() const;
   sf::Time getEmergence() const;
