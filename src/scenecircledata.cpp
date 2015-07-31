@@ -9,6 +9,20 @@ SceneCircleData::SceneCircleData(int circleID, const MapData& map_data) : SceneE
     throw invalid_argument("You tried to use a \"" + map_data.scene_data[circleID].type + "\" ID when a circle ID is needed.");
 }
 
+
+int SceneCircleData::getScore(const sf::Time& click_moment, const sf::Vector2f& click_position) const
+{
+  if(distance(click_position,getPosition()) <= static_cast<float>(getRadius()))
+    {
+      if(click_moment >= getClickTime())//Careful : position DivisionBy Zero
+	return static_cast<int>( 100.0 * (static_cast<float>((getEmergence() + getDuration() - click_moment()).asMilliseconds()) / static_cast<float>((getDuration()* (1 - getRatio())).asMilliseconds())));
+      else 
+	return static_cast<int>(100.0 * (static_cast<float>((click_moment - getEmergence()).asMilliseconds()) / static_cast<float>((getDuration()*  getRatio()).asMilliseconds())));
+    }
+  else
+    return -1;
+}
+
 //returns the radius of the circle
 int SceneCircleData::getRadius() const
 {

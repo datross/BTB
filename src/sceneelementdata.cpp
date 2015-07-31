@@ -53,3 +53,5 @@ sf::Time SceneElementData::getEmergence() const
 {
   return getClickTime() - getRatio() * getDuration();
 }
+
+

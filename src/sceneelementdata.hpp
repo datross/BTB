@@ -17,11 +17,15 @@ public :
   SceneElementData(int elementID , const MapData& map_data);
 
   //accessors
-  virtual sf::Time getClickTime() const;
+  virtual int getScore(const sf::Time& click_moment, const sf::Vector2f& click_position) const
+  {}
+  sf::Time getClickTime() const;
   sf::Time getDuration() const;
   sf::Time getEmergence() const;
   float getRatio() const;
   std::string getType() const;
+
+  
 
   bool hasToEmerge(const sf::Time& timeElapsed) const;
   void emerge();

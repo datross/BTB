@@ -1,2 +1,11 @@
 The project uses the MVC desing patern.
 View  : implement a very simple display. No menu for the moment.
+
+Bug #1 : Circles are not displayed.
+Fixed #1 : Forgot to return color.
+Bug #2 : A circle appears not at it's position.
+Fixed #2 : Just a switch in positions
+Bug #3 : Circles don't stay enough on the screen.
+Fixed #3 : Be careful : the emergence time has to be positive.
+Bug #4 : Display doesn't follow click order.
+Fixed #4 : Has to be done.

@@ -14,6 +14,8 @@ class SceneCircleData : public SceneElementData
 public :
   SceneCircleData(int circleID, const MapData& map_data);  
   
+  virtual int getScore(const sf::Time& click_moment, const sf::Vector2f& click_position) const;
+
   int getRadius() const;
   sf::Color getColor() const;
   sf::Vector2f getPosition() const;

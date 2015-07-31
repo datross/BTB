@@ -9,3 +9,4 @@ sf::Color parseColor(const std::string& hexString);
 
 // computes the distance between to points
 float distance(int x1, int y1, int x2, int y2);
+float distance(const sf::Vector2f& , const sf::Vector2f&);
