@@ -5,7 +5,7 @@
 		{ 
 			"type" : "circle",
 			"time" : 7,
-			"duration" : 10.0,
+			"duration" : 1.0,
 			"ratio" : 0.7,
 			"specificity" : {
 				"radius" : 30,
@@ -18,7 +18,7 @@
 		{ 
 			"type" : "circle",
 			"time" : 6,
-			"duration" : 4,
+			"duration" : 3,
 			"ratio" : 0.7,
 			"specificity" : {
 				"radius" : 30,

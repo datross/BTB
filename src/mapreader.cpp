@@ -17,21 +17,20 @@ MapReader::MapReader(const MapData& map_data) : map_data(map_data),scene_element
 
 void MapReader::startSong()
 {
-  clock.restart();
   map_data.song->play();
 }
 
 //This function returns the elements which have never been displayed before but which have to be displayed starting from now.
-vector<SceneElementData*> MapReader::getNewElements()
+vector<SceneElementData*> MapReader::getNewElements(const sf::Time& time)
 {
   vector<SceneElementData*> ret;
   int i = last_id_not_displayed;
   sf::Time max_click_time = sf::milliseconds(0);
 
   //looking forthe elements to emerge
-  while(i < static_cast<int>(scene_elements.size()) && scene_elements[i]->getEmergence() <= clock.getElapsedTime())
+  while(i < static_cast<int>(scene_elements.size()) && scene_elements[i]->getEmergence() <= time)
     {
-      if(scene_elements[i]->hasToEmerge(clock.getElapsedTime()))
+      if(scene_elements[i]->hasToEmerge(time))
 	{
 	  ret.push_back(scene_elements[i]);
 	  scene_elements[i]->emerge();
@@ -56,13 +55,6 @@ vector<SceneElementData*> MapReader::getNewElements()
   //sorting by click order
   std::sort(ret.begin(),ret.end(),SceneElementData::ClickComparison());
   return ret;
-}
-
-
-//This function returns the time elapsed since the begining of the song
-sf::Time MapReader::getTime() const
-{
-  return clock.getElapsedTime();
 }
 
 MapReader::~MapReader()

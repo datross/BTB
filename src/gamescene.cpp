@@ -1,26 +1,32 @@
 #include "gamescene.hpp"
 
+using namespace std;
+
 GameScene::GameScene(MapReader * reader, sf::RenderWindow* window)
     : map_reader(reader), window(window)
 {
-    elements = NULL;
+
 }
 
 GameScene::~GameScene()
 {
     // deletes the chain
-    deleteChain(elements);
+    if(!elements.empty())
+    {
+        for(list<SceneElement*>::iterator it = elements.begin(); it != elements.end(); ++it)
+        {
+            delete *it;
+        }
+    }
 }
 
-void GameScene::update(sf::Time time)
+void GameScene::update(const sf::Time& current_time)
 {
-    current_time = time;
-
     // removing useless elements
-    removeUselessElements(elements);
+    removeUselessElements(current_time);
 
     // looking for new elements
-    std::vector<SceneElementData*> new_elements = map_reader->getNewElements();
+    std::vector<SceneElementData*> new_elements = map_reader->getNewElements(current_time);
 
     // adding new elements to the display chain
     std::string type;
@@ -32,21 +38,16 @@ void GameScene::update(sf::Time time)
         {
             SceneCircle * circle = new SceneCircle(window, *it);
 
-            if(elements == NULL)
-            {
-                elements = circle;
-            }
-            else
-            {
-                elements->addElement(circle);
-            }
+            elements.push_back(circle);
         }
     }
 
-    if(elements != NULL)
+    if(!elements.empty())
     {
-        // preparing elements
-        elements->prepare(time);
+        for(list<SceneElement*>::iterator it = elements.begin(); it != elements.end(); ++it)
+        {
+            (*it)->prepare(current_time);
+        }
     }
 }
 
@@ -54,47 +55,29 @@ void GameScene::show(const sf::View& clip)
 {
     if(isVisible())
     {
-        if(elements != NULL)
+        if(!elements.empty())
         {
-            elements->show(current_time);
+            for(list<SceneElement*>::reverse_iterator it = elements.rbegin(); it != elements.rend(); ++it)
+            {
+                (*it)->show();
+            }
         }
     }
 }
 
 // recursive function which remove every element which has not to be displayed anymore
-void GameScene::removeUselessElements(SceneElement* element)
+void GameScene::removeUselessElements(const sf::Time& time)
 {
-    if(element != NULL)
+    if(!elements.empty())
     {
-        // if the element has to be deleted
-        if(current_time > element->getData()->getEmergence() + element->getData()->getDuration())
+        for(list<SceneElement*>::iterator it = elements.begin(); it != elements.end(); ++it)
         {
-            SceneElement * sauv = element->next;
-            bool first = false;
-
-            if(element->previous == NULL)
-                first = true; // first of the chain
-
-            element->autoRemove();
-
-            if(first)
-                elements = sauv;
-
-            removeUselessElements(sauv);
+            if((*it)->getData()->isPassed(time))
+            {
+                delete *it;
+                it = elements.erase(it);
+            }
         }
     }
 }
 
-// recursive function
-void GameScene::deleteChain(SceneElement * element)
-{
-    if(element != NULL)
-    {
-        if(element->next != NULL)
-        {
-            deleteChain(element->next);
-        }
-
-        delete element;
-    }
-}

@@ -26,11 +26,11 @@ public :
   float getRatio() const;
   std::string getType() const;
 
-  
+  bool isVisible(const sf::Time& timeElapsed) const;
+  bool isPassed(const sf::Time& timeElapsed) const;
 
-  bool hasToEmerge(const sf::Time& timeElapsed) const;
   void emerge();
-  void kill();
+  bool hasToEmerge(const sf::Time&);
 
 
   class EmergenceComparison

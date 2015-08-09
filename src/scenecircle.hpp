@@ -16,10 +16,10 @@ public:
     ~SceneCircle();
 
     // prepare the display position
-    void prepare(sf::Time time);
+    void prepare(const sf::Time& time);
 
     // display the sprites
-    void show(sf::Time time);
+    void show();
 private:
     // images
     sf::Image circle_image;

@@ -17,13 +17,11 @@ public:
   MapReader(const MapData& map_data);
   ~MapReader();
   void startSong();
-  std::vector<SceneElementData*> getNewElements(); //can't be const because last_id_not_displayed is modified.
-  sf::Time getTime() const;
+  std::vector<SceneElementData*> getNewElements(const sf::Time&); //can't be const because last_id_not_displayed is modified.
 
 private :
   std::vector<SceneElementData*> scene_elements;//this vector is sorted by emergence order.
   const MapData& map_data;
-  sf::Clock clock;
   int last_id_not_displayed; //this id avoids to  browse all the scene_elements vector when getNewElements is called.
 };
 

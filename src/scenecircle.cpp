@@ -33,10 +33,12 @@ SceneCircle::~SceneCircle()
 
 }
 
-void SceneCircle::prepare(sf::Time time)
+void SceneCircle::prepare(const sf::Time& time)
 {
+    SceneElement::prepare(time);
+
     // if it is time to display the element
-    if(time > casted_data->getEmergence())
+    if(visible)
     {
         // calculation of both circles positions
         if(time < casted_data->getClickTime()) // before click time
@@ -58,27 +60,15 @@ void SceneCircle::prepare(sf::Time time)
         circle_1.setPosition(pos_circle_1);
         circle_2.setPosition(pos_circle_2);
     }
-
-    // call of the next element in the chain
-    if(next != NULL)
-    {
-        next->prepare(time);
-    }
 }
 
-void SceneCircle::show(sf::Time time)
+void SceneCircle::show()
 {
     // if it is time to show the element
-    if(casted_data->getEmergence() < time)
+    if(visible)
     {
         // draw both circles on the window
         window->draw(circle_1);
         window->draw(circle_2);
-    }
-
-    // call of the next element in the chain
-    if(next != NULL)
-    {
-        next->show(time);
     }
 }

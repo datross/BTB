@@ -13,9 +13,14 @@ SceneElementData::SceneElementData(int elementID , const MapData& map_data) : el
     throw invalid_argument("The ID of the SceneElement is incorrect.");
 }
 
-bool SceneElementData::hasToEmerge(const sf::Time& timeElapsed) const
+bool SceneElementData::isVisible(const sf::Time& timeElapsed) const
 {
-  return !emerged && timeElapsed >= getEmergence() && timeElapsed <= getEmergence() + getDuration();
+  return timeElapsed >= getEmergence() && timeElapsed <= getEmergence() + getDuration();
+}
+
+bool SceneElementData::isPassed(const sf::Time& timeElapsed) const
+{
+    return timeElapsed > getEmergence() + getDuration();
 }
 
 void SceneElementData::emerge()
@@ -23,11 +28,10 @@ void SceneElementData::emerge()
   emerged = true;
 }
 
-void SceneElementData::kill()
+bool SceneElementData::hasToEmerge(const sf::Time& time)
 {
-  emerged = false;
+    return !emerged && isVisible(time);
 }
-
 
 sf::Time SceneElementData::getClickTime() const
 {

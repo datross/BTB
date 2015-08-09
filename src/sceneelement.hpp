@@ -15,24 +15,18 @@ class SceneElement
 public:
     SceneElement();
 
-    virtual void prepare(sf::Time time);
-    virtual void show(sf::Time time);
-
-    // previous and next SceneElement in the chain, it can be "NULL".
-    SceneElement * previous, * next;
-
-    // insert an element in the chain, by clicTime order
-    void addElement(SceneElement*);
-
-    // removes and deleting itself from the chain and the memory
-    void autoRemove();
+    virtual void prepare(const sf::Time& time);
+    virtual void show();
 
     // accessor for data
     const SceneElementData * getData();
+
 protected:
 
     // data storing of the element
     const SceneElementData * data;
+
+    bool visible;
 };
 
 #endif // SCENEELEMENT_HPP

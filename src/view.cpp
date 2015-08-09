@@ -31,7 +31,7 @@ View::~View()
   delete tv;
 }
 
-void View::show()
+void View::show(const sf::Time& time)
 {
 
   sf::View sf_view = window->getView();
@@ -39,10 +39,10 @@ void View::show()
   window->clear();
 
   // displaying InterfaceElements
-  tv->setTime(map_reader->getTime());
+  tv->setTime(time);
   tv->show(sf_view);
 
-  game_scene->update(map_reader->getTime());
+  game_scene->update(time);
   game_scene->show(sf_view);
 
   window->display();

@@ -15,7 +15,7 @@ public:
     ~View();
 
     // displays the program
-    void show();
+    void show(const sf::Time&);
 
     // window on which the program is displayed
     sf::RenderWindow* window;
