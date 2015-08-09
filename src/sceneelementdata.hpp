@@ -29,7 +29,7 @@ public :
   std::string getType() const;
 
   bool isVisible(const sf::Time& timeElapsed) const;
-  bool isPassed(const sf::Time& timeElapsed) const;
+  bool isPassed(const sf::Time& timeElapsed) const;//can not be clicked anymore
 
   void emerge();
   bool hasToEmerge(const sf::Time&);
@@ -58,7 +58,7 @@ protected :
   const MapData& map_data;
   int elementID;
   bool emerged;
-  bool clicked;
+  bool clicked; //unused for the moment
 };
 
 

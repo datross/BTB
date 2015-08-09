@@ -63,6 +63,7 @@ int MapReader::getScore() const
 }
 
 //has to be called each time there is a click
+//The score is the purcentage of the success of the click (only depends off the time.
 void MapReader::computeScore(const int x, const int y, const sf::Time& time)
 {
     if(!scene_elements.empty())
@@ -73,7 +74,7 @@ void MapReader::computeScore(const int x, const int y, const sf::Time& time)
     }
     else
     {
-        score -= MISSED;
+        score += MISSED;
     }
 }
 

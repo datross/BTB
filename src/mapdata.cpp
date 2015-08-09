@@ -1,14 +1,12 @@
 #include "mapdata.hpp"
 
-
-
 using namespace std;
 
 //parse the Json file.
 MapData::MapData(const string& file)
 {
+  //load the file in a string
   ifstream json_file(file);
-
   if (!json_file)
     throw runtime_error("Json file loading failed");
 
@@ -44,6 +42,7 @@ void MapData::loadSceneData(const json& json_map)
     {
       json json_timeline = json_map["game_timeline"];
       sceneElementInfo info_tmp;
+      //load the time line
       for(json::iterator it = json_timeline.begin(); it != json_timeline.end(); ++it)
 	{
 	  

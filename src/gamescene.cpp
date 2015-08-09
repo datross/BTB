@@ -65,18 +65,16 @@ void GameScene::show(const sf::View& clip)
     }
 }
 
-// recursive function which remove every element which has not to be displayed anymore
+// function which remove every element which has not to be displayed anymore
 void GameScene::removeUselessElements(const sf::Time& time)
 {
     if(!elements.empty())
     {
-        for(list<SceneElement*>::iterator it = elements.begin(); it != elements.end(); ++it)
+        list<SceneElement*>::iterator it = elements.begin();
+        while( it != elements.end() && (*it)->getData()->isPassed(time))
         {
-            if((*it)->getData()->isPassed(time))
-            {
-                delete *it;
-                it = elements.erase(it);
-            }
+            delete *it;
+            it = elements.erase(it);
         }
     }
 }

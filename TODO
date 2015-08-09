@@ -8,4 +8,6 @@ Fixed #2 : Just a switch in positions
 Bug #3 : Circles don't stay enough on the screen.
 Fixed #3 : Be careful : the emergence time has to be positive.
 Bug #4 : Display doesn't follow click order.
-Fixed #4 : Has to be done.
+Fixed #4 : List has to be reversed
+
+VIEW : control display frame rate.
