@@ -8,6 +8,8 @@
 #include <stdexcept>
 #include <string>
 
+#define MISSED -50
+
 sf::Vector2f parsePosition(const json& json_position);
 
 
@@ -17,7 +19,7 @@ public :
   SceneElementData(int elementID , const MapData& map_data);
 
   //accessors
-  virtual int getScore(const sf::Time& click_moment, const sf::Vector2f& click_position) const
+  virtual int computeScore(const sf::Time& click_moment, const sf::Vector2f& click_position)
   {}
 
   sf::Time getClickTime() const;
@@ -36,6 +38,7 @@ public :
   class EmergenceComparison
   {
   public :
+    EmergenceComparison(){}
     bool operator()(const SceneElementData* sed1, const SceneElementData* sed2)
     {
       return sed1->getEmergence() <= sed2->getEmergence();
@@ -55,6 +58,7 @@ protected :
   const MapData& map_data;
   int elementID;
   bool emerged;
+  bool clicked;
 };
 
 

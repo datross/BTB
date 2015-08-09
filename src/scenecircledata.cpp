@@ -10,17 +10,20 @@ SceneCircleData::SceneCircleData(int circleID, const MapData& map_data) : SceneE
 }
 
 
-int SceneCircleData::getScore(const sf::Time& click_moment, const sf::Vector2f& click_position) const
+int SceneCircleData::computeScore(const sf::Time& click_moment, const sf::Vector2f& click_position)
 {
-  if(distance(click_position,getPosition()) <= static_cast<float>(getRadius()))
+  if(distance(click_position,getPosition()) <= static_cast<float>(getRadius()) && !clicked)
     {
+      clicked = true;
+
       if(click_moment >= getClickTime())//Careful : position DivisionBy Zero
 	return static_cast<int>( 100.0 * (static_cast<float>((getEmergence() + getDuration() - click_moment).asMilliseconds()) / static_cast<float>((getDuration()* (1 - getRatio())).asMilliseconds())));
       else 
 	return static_cast<int>(100.0 * (static_cast<float>((click_moment - getEmergence()).asMilliseconds()) / static_cast<float>((getDuration()*  getRatio()).asMilliseconds())));
+
     }
   else
-    return -1;
+    return MISSED;
 }
 
 //returns the radius of the circle

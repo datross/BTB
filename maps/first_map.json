@@ -4,12 +4,12 @@
 	"game_timeline" : [
 		{ 
 			"type" : "circle",
-			"time" : 7,
-			"duration" : 1.0,
+			"time" : 1,
+			"duration" : 1,
 			"ratio" : 0.7,
 			"specificity" : {
 				"radius" : 30,
-				"color" : "FF0000FF",
+				"color" : "FF0008FF",
 				"position" : [200,180]
 			}
 
@@ -17,16 +17,55 @@
 		},
 		{ 
 			"type" : "circle",
-			"time" : 6,
-			"duration" : 3,
+			"time" : 1.5,
+			"duration" : 1,
 			"ratio" : 0.7,
 			"specificity" : {
 				"radius" : 30,
-				"color" : "FFFF00FF",
-				"position" : [180,180]
+				"color" : "FF9000FF",
+				"position" : [50,150]
 			}
 
 
-		}		
+		},
+		{ 
+			"type" : "circle",
+			"time" : 2,
+			"duration" : 1,
+			"ratio" : 0.7,
+			"specificity" : {
+				"radius" : 30,
+				"color" : "FA0020FF",
+				"position" : [300,30]
+			}
+
+
+		},
+		{ 
+			"type" : "circle",
+			"time" : 2.5,
+			"duration" : 1,
+			"ratio" : 0.7,
+			"specificity" : {
+				"radius" : 30,
+				"color" : "F8002CFF",
+				"position" : [300,300]
+			}
+
+
+		},
+		{ 
+			"type" : "circle",
+			"time" : 3,
+			"duration" : 1,
+			"ratio" : 0.7,
+			"specificity" : {
+				"radius" : 30,
+				"color" : "F39102FF",
+				"position" : [50,50]
+			}
+
+
+		}	
 	]
 }

@@ -7,7 +7,7 @@ sf::Vector2f parsePosition(const json& json_position)
   return sf::Vector2f(static_cast<float>(json_position[0]),static_cast<float>(json_position[1]));
 }
 
-SceneElementData::SceneElementData(int elementID , const MapData& map_data) : elementID(elementID), map_data(map_data), emerged(false)
+SceneElementData::SceneElementData(int elementID , const MapData& map_data) : elementID(elementID), map_data(map_data), emerged(false), clicked (false)
 {
   if(elementID >= static_cast<int>(map_data.scene_data.size()))
     throw invalid_argument("The ID of the SceneElement is incorrect.");

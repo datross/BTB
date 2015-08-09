@@ -20,9 +20,8 @@ private :
   MapReader* reader;
   View view;
 
-  sf::Clock clock;
-
   // time at the beginning of the loop
+    sf::Clock clock;
   sf::Time loop_time;
 };
 

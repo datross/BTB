@@ -4,7 +4,7 @@ using namespace std;
 
 Controller::Controller(MapReader* reader) : reader(reader),view(reader)
 {
-  reader->startSong();
+    startSong();
 }
 
 void Controller::update()
@@ -22,10 +22,16 @@ void Controller::eventLoop()
         {
 	  if (event.type == sf::Event::Closed)
 	    view.window->close();
+      if(event.type == sf::Event::MouseButtonPressed)
+        {
+          reader->computeScore(event.mouseButton.x,event.mouseButton.y, loop_time);
+        }
+
         }
       view.show(loop_time);
       }
 }
+
 
 void Controller::startSong()
 {

@@ -39,7 +39,7 @@ void View::show(const sf::Time& time)
   window->clear();
 
   // displaying InterfaceElements
-  tv->setTime(time);
+  tv->setScore(map_reader->getScore());
   tv->show(sf_view);
 
   game_scene->update(time);
